@@ -1,8 +1,11 @@
 class PhotoShout < ApplicationRecord
-  has_attached_file :image, styles: { thumb: "200x200" }
-  # paperclip method vs xss attacks
-  validates_attachment :image,
-    content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
-    size: { in: 0..10.megabytes },
-    presence: true
+  has_one_attached :image
+
+  def thumbnail
+    return self.image.variant(resize: "200x200!").processed
+  end
+
+  def banner
+    return self.image.variant(resize: "1200x300!").processed
+  end
 end
