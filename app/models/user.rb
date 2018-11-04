@@ -40,6 +40,10 @@ class User < ApplicationRecord
     # comes from has_many relation
     followed_user_ids.include?(user.id)
   end
+
+  def timeline_shouts
+    Shout.where(user_id: followed_user_ids + [id])
+  end
 # overwrites routes to id
   def to_param
     username
