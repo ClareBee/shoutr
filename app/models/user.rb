@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def liked?(shout)
     liked_shout_ids.include?(shout.id)
   end
+# overwrites routes to id
+  def to_param
+    username
+  end
 end
