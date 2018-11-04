@@ -1,4 +1,5 @@
 <div>
+  <%= avatar(shout.user) %>
   <%= link_to shout.username, shout.user %>
   <!-- polymorphic rendering -->
   <%= render shout.content %>
