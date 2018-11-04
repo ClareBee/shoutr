@@ -13,7 +13,6 @@ module ShoutHelper
 
   def shout_form_for(shout_type)
     form_for Shout.new, url: shout_type.new do |f|
-      f.hidden_field(:content_type, value: shout_type) +
       f.fields_for(:content) { |content_form| yield(content_form) } +
       f.submit('Shout!')
     end
