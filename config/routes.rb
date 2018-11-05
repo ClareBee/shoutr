@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :hashtags, only: [:show]
+
   resources :users, only: [:create, :show] do
     resources :followers, only: :index
     member do
