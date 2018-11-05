@@ -1,4 +1,6 @@
 class Timeline
+  # includes to_partial_path as alternative to method below
+  # include ActiveModel::Conversion
   def initialize(users)
     @users = users
   end
@@ -9,7 +11,10 @@ class Timeline
       order(created_at: :desc)
   end
 
-  private
-  attr_reader :user
+  def to_partial_path
+    "timelines/timeline"
+  end
 
+  private
+  attr_reader :users
 end
