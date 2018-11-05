@@ -1,6 +1,6 @@
 class HashtagsController < ApplicationController
   def show
     @hashtag = params[:id]
-    @results = Shout.search(term: "##{@hashtag}")
+    @results = ShoutSearchQuery.new(term: "##{@hashtag}").to_relation
   end
 end
