@@ -33,7 +33,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'clearance'
 gem 'bootsnap'
 gem "mini_magick"
-
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
